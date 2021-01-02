@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+  <title>COVID-19 questionnaire | In progress</title>
+  <link rel = "stylesheet"
+    type = "text/css"
+    href = "stylesheet.css" />
+  <link rel='shortcut icon' href='favicon.ico' />
+
+</head>
+<body>
+  <header id='header'>
+		<div id='logo' itemscope itemtype='https://schema.org/Organization'>
+      <img src='logo.svgz' alt='Pullman &amp; Comley LLC' />
+    </div>
+	</header>
+
+  <script type="text/javascript">
+
+    function displayCheck() {
+      var obj = document.getElementById("locations");
+      var location = obj.options[obj.selectedIndex].text;
+      var element = document.getElementById("hideable");
+      if (location == "Working remotely") {
+        document.getElementById("id1").disabled = true;
+        document.getElementById("id2").disabled = true;
+        document.getElementById("id3").disabled = true;
+        document.getElementById("id4").disabled = true;
+        document.getElementById("id5").disabled = true;
+        document.getElementById("id6").disabled = true;
+        document.getElementById("id7").disabled = true;
+        document.getElementById("id8").disabled = true;
+        document.getElementById("id9").disabled = true;
+        document.getElementById("id10").disabled = true;
+        document.getElementById("id11").disabled = true;
+        document.getElementById("id12").disabled = true;
+        document.getElementById("id13").disabled = true;
+        element.classList.add("hidden")
+      }
+      else {
+        document.getElementById("id1").disabled = false;
+        document.getElementById("id2").disabled = false;
+        document.getElementById("id3").disabled = false;
+        document.getElementById("id4").disabled = false;
+        document.getElementById("id5").disabled = false;
+        document.getElementById("id6").disabled = false;
+        document.getElementById("id7").disabled = false;
+        document.getElementById("id8").disabled = false;
+        document.getElementById("id9").disabled = false;
+        document.getElementById("id10").disabled = false;
+        document.getElementById("id11").disabled = false;
+        document.getElementById("id12").disabled = false;
+        document.getElementById("id13").disabled = false;
+        element.classList.remove("hidden")
+      }
+    }
+  </script>
+  <form method="POST" action="handler.php">
+
+    <input class="firstName" type="text" name="firstName" placeholder="First Name" required>
+    <br><br>
+    <input type="text" name="lastName" placeholder="Last Name" required>
+    <br><br>
+
+    <label for="locations" class ="dropdown">Where will you be working today?</label>
+    <br>
+    <select onchange="displayCheck()" id="locations" name="locationSelect" class ="dropdown" required>
+      <option value="Bridgeport">Bridgeport</option>
+      <option value="Hartford">Hartford</option>
+      <option value="Springfield">Springfield</option>
+      <option value="Stamford">Stamford</option>
+      <option value="Waterbury">Waterbury</option>
+      <option value="Westport">Westport</option>
+      <option value="White Plains">White Plains</option>
+      <option value="Working remotely">Working remotely</options>
+    </select>
+    <br><br>
+
+    <div id="hideable">
+      <label for="symptomsCheck">
+        <p class="label">
+          In the past 14 days, have you experienced any of the following symptoms?
+        </p>
+        <ul class="label">
+          <li>Fever (temperature in excess of 100.0 degrees Fahrenheit)</li>
+          <li>Chills</li>
+          <li>Repetated shaking with chills</li>
+          <li>Muscle pain</li>
+          <li>Runny or stuffy nose</li>
+          <li>Headache</li>
+          <li>Fatigue</li>
+          <li>Recent loss of taste or smell</li>
+          <li>Body aches</li>
+          <li>Cough</li>
+          <li>Respiratory issues</li>
+          <li>Gastrointestinal issues</li>
+          <li>Any other symptoms noted by the CDC or other public health officials as being associated with COVID-19</li>
+        </ul>
+      </label>
+      <input type="radio" name="symptomsCheck" id="id1" value="Yes" required>
+      <label for="yes">Yes</label>
+      <input type="radio" name="symptomsCheck" id="id2" value="No" required>
+      <label for="no">No</label>
+      <br><br>
+
+      <label class="label" for="contactCheck">Have you ever had close contact with anyone who was sick with COVID-19?</label>
+      <br>
+      <input type="radio" name="contactCheck" id="id3" value="Yes" required>
+      <label for="yes">Yes</label>
+      <input type="radio" name="contactCheck" id="id4" value="No" required>
+      <label for="no">No</label>
+      <br><br>
+
+      <label class="label" for="clusterCheck">In the last 14 days, have you traveled to any area with clusters of COVID-19?</label>
+      <br>
+      <input type="radio" name="clusterCheck" id="id5" value="Yes" required>
+      <label for="yes">Yes</label>
+      <input type="radio" name="clusterCheck" id="id6" value="No" required>
+      <label for="no">No</label>
+      <br><br>
+
+      <label class="label" for="internationalTravelCheck">In the last 14 days, have you traveled internationally?</label>
+      <br>
+      <input type="radio" name="internationalTravelCheck" id="id7" value="Yes" required>
+      <label for="yes">Yes</label>
+      <input type="radio" name="internationalTravelCheck" id="id8" value="No" required>
+      <label for="no">No</label>
+      <br><br>
+
+      <label class="label" for="riskCheck">In the last 14 days, have you been a visitor to a nursing home, hospital or other high-risk congregate setting?</label>
+      <br>
+      <input type="radio" name="riskCheck" id="id9" value="Yes" required>
+      <label for="yes">Yes</label>
+      <input type="radio" name="riskCheck" id="id10" value="No" required>
+      <label for="no">No</label>
+      <br><br>
+
+      <label class="label" for="interstateTravelCheck">In the last 14 days, have you engaged in interstate travel on a plane, train, bus or cruise ship? </label>
+      <br>
+      <input type="radio" name="interstateTravelCheck" id="id11" value="Yes" required>
+      <label for="yes">Yes</label>
+      <input type="radio" name="interstateTravelCheck" id="id12" value="No" required>
+      <label for="no">No</label>
+      <br><br>
+
+      <input type="checkbox" name="tempCertification" value="Certified" id="id13" required>
+      <label class="checkLable" for="tempCertification">I certify that I have checked my temperature prior to my arrival at the office today and it is less than 100.0 degrees Fahrenheit.</lable>
+      <p class="warning"><em>If you cannot certify this statement, please refrain from in person work</em></p>
+      <br><br>
+
+    </div>
+
+    <input class="submit" type="submit" value="Submit Questionnaire">
+  </form>
+</body>
